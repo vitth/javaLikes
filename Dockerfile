@@ -1,11 +1,11 @@
-# Use OpenJDK 17 as base image
-FROM eclipse-temurin:17-jdk-alpine
-
-# Set working directory
+# 1. Build Stage
+FROM maven:3.9.6-eclipse-temurin-17-alpine AS build
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Copy target jar
-COPY target/JavaLikes-0.0.1-SNAPSHOT.jar app.jar
-
-# Run the app
+# 2. Run Stage
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
