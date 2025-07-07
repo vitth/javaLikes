@@ -1,34 +1,118 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>JavaLikes Course</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>JavaLikes Course Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .logo-img { width: 50px; height: auto; }
+        .hero { background: #007bff; color: white; }
+        .hero h1 { font-size: 2.5rem; }
+        .hero p { font-size: 1.2rem; }
+        .fees del { color: #ff4d4d; }
+        .fees strong { color: #28a745; font-size: 1.5rem; }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <img src="/images/javalikes-logo.png" alt="JavaLikes Logo" class="logo" />
-        <h1>Placement Assistance Program on Java and Microservice </h1>
 
-        <!-- ✅ Your syllabus snippet here -->
-        <h2>✴️✴️ Syllabus overview ✴️✴️</h2>
-        <ul>
-          <li th:each="item : ${syllabus}" th:text="${item.topic}"></li>
-        </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="/images/javalikes-logo.png" alt="JavaLikes Logo" class="logo-img">
+      JavaLikes
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <h3>Tools</h3>
-        <ul>
-          <li th:each="tool : ${tools}" th:text="${tool.topic}"></li>
-        </ul>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
 
-        <h3>Projects</h3>
-        <ul>
-          <li th:each="proj : ${projects}" th:text="${proj.topic}"></li>
-        </ul>
+        <!-- Services dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+            <li><a class="dropdown-item" href="#">Software Training</a></li>
+            <li><a class="dropdown-item" href="#">Placements</a></li>
+            <li><a class="dropdown-item" href="#">Mock-Interviews</a></li>
+            <li><a class="dropdown-item" href="#">Software Development</a></li>
+          </ul>
+        </li>
 
-        <div class="fees">
-            <span class="old">₹ [[${fees}]]</span>
-            <span class="discounted">₹ [[${discountedFees}]] for early students</span>
-        </div>
+        <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        <li class="nav-item"><a class="btn btn-primary ms-2" href="#">Login</a></li>
+      </ul>
     </div>
+  </div>
+</nav>
+
+<div class="hero p-5 mb-4">
+  <div class="container">
+    <h1 class="fw-bold">Placement Assistance Program on Fullstack Java & .NET</h1>
+    <p>Industry-ready syllabus with real-time projects and hands-on tools.</p>
+    <div class="fees mt-3">
+      <del>₹ [[${fees}]]</del>
+      <strong>₹ [[${discountedFees}]] for early students</strong>
+    </div>
+    <a class="btn btn-light btn-lg mt-3" href="#">Join Now</a>
+  </div>
+</div>
+
+<div class="container my-5 text-center">
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <div class="card shadow h-100">
+        <div class="card-body">
+          <h2>52456+</h2>
+          <p>Careers Advanced</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card shadow h-100">
+        <div class="card-body">
+          <h2>50+</h2>
+          <p>Courses Offered</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card shadow h-100">
+        <div class="card-body">
+          <h2>30+</h2>
+          <p>Expert Trainers</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <h2 class="mb-4">✴️✴️ Syllabus Overview ✴️✴️</h2>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" th:each="item : ${syllabus}" th:text="${item.topic}"></li>
+  </ul>
+
+  <h3 class="mt-5">Tools Covered</h3>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" th:each="tool : ${tools}" th:text="${tool.topic}"></li>
+  </ul>
+
+  <h3 class="mt-5">Projects</h3>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" th:each="proj : ${projects}" th:text="${proj.topic}"></li>
+  </ul>
+</div>
+
+<footer class="bg-dark text-light py-4 text-center">
+  © 2025 JavaLikes. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
