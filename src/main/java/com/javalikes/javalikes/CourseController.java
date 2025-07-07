@@ -15,5 +15,12 @@ public class CourseController {
 		return Arrays.asList("python,java,spring,microservice");
 
 	}
+	
+	@GetMapping("/get/love")
+	public String getMsg() {
+
+		return "Hi Shivani,I Love You";
+
+	}
 
 }
