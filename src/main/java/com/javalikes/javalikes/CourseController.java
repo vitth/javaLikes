@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CourseController {
 
+	
+	
 	@GetMapping("/get/course")
 	public List<String> getAllCourse() {
 
@@ -22,5 +24,8 @@ public class CourseController {
 		return "Hi Shivani,I Love You";
 
 	}
+	
+
+	
 
 }

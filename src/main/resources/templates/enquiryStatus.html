@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Enquiry Status</title></head>
+<body>
+<h2>Check Enquiry Status</h2>
+<form action="/api/enquiry/{email}" method="get">
+    Email: <input type="email" name="email"/><br/>
+    <button type="submit">Check</button>
+</form>
+</body>
+</html>

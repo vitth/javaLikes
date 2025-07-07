@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Enquiry</title></head>
+<body>
+<h2>Course Enquiry</h2>
+<form action="#" th:action="@{/api/enquiry}" th:object="${enquiry}" method="post">
+    Name: <input type="text" th:field="*{name}"/><br/>
+    Email: <input type="email" th:field="*{email}"/><br/>
+    Phone: <input type="text" th:field="*{phone}"/><br/>
+    Interested Course: <input type="text" th:field="*{courseInterested}"/><br/>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
