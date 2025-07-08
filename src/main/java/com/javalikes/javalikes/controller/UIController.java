@@ -10,7 +10,7 @@ import com.javalikes.javalikes.model.Student;
 @Controller
 public class UIController {
 
-	@GetMapping("/register")
+	@GetMapping("/registerff")
 	public String showRegistrationForm(Model model) {
 		model.addAttribute("student", new Student());
 		return "register";

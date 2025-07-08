@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+  <div th:fragment="navbar">
+    <div class="bg-dark text-light py-2 small">
+      <div class="container d-flex justify-content-between">
+        <div>
+          <span class="me-3"><i class="bi bi-telephone-fill"></i> For Enquiry: +91-9985396677</span>
+          <span><i class="bi bi-envelope-fill"></i> info@javalikes.com</span>
+        </div>
+        <div>
+          <a href="#" class="text-light me-2">Join Community</a>
+          <a href="#" class="text-light">Free Tutorials</a>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img th:src="@{/images/javalikes-logo.PNG}" alt="JavaLikes Logo" style="width:50px;">
+          JavaLikes
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/syllabus">Syllabus</a></li>
+            <li class="nav-item"><a class="nav-link" href="/projects">Projects</a></li>
+            <li class="nav-item"><a class="btn btn-primary ms-2" href="/register">Register</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <footer th:fragment="footer" class="bg-dark text-light py-4 text-center mt-5">
+    © 2025 JavaLikes. All rights reserved.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

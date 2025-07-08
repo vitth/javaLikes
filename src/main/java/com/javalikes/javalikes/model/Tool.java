@@ -6,33 +6,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Course {
+public class Tool {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	private String topic;
-	
-	private String type; 
-	
-	private String category;
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
 
 	// Getters & Setters
 	public Long getId() {
@@ -50,5 +30,4 @@ public class Course {
 	public void setTopic(String topic) {
 		this.topic = topic;
 	}
-
 }
