@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javalikes.javalikes.model.Course;
+import com.javalikes.javalikes.model.CourseDetail;
 import com.javalikes.javalikes.repository.CourseRepository;
 
 @Service
@@ -45,4 +46,11 @@ public class CourseServiceImpl implements CourseService {
     	return courseRepository.findByCategory("TESTING");
     }
 
+    public List<CourseDetail> getAllCourses() {
+        return List.of(
+            new CourseDetail("Java Fullstack and Spring Boot and devops", "5 Months", "25000","15th Aug 2025"),
+            new CourseDetail("Spring Boot And Microservice", "3 Months", "17000","15th Aug 2025"),
+            new CourseDetail("Manual & Automation Testing", "4 Months", "20000","15th Aug 2025")
+        );
+    }
 }

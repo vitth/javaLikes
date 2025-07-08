@@ -1,50 +1,107 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home - JavaLikes</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Home - JavaLikes</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+	rel="stylesheet">
+<style>
+.profile-section {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: all 0.8s ease;
+}
+
+.profile-section.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.profile-photo {
+	transition: transform 0.5s;
+}
+
+.profile-photo:hover {
+	transform: scale(1.08);
+}
+</style>
 </head>
 <body>
 
-<div th:replace="fragments :: navbar"></div>
+	<div th:replace="fragments :: navbar"></div>
 
-<!-- ✅ Full-width banner -->
-<div class="w-100 overflow-hidden">
-    <img th:src="@{/images/banner.png}" alt="Java Fullstack Banner"
-         class="img-fluid w-100"
-         style="height: 500px; object-fit: cover;" />
-</div>
+	<!-- ✅ Rotating Banner Carousel with object-fit: contain -->
+	<div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+		<!-- Indicators -->
+		<div class="carousel-indicators">
+			<button type="button" data-bs-target="#bannerCarousel"
+				data-bs-slide-to="0" class="active" aria-current="true"
+				aria-label="Slide 1"></button>
+			<button type="button" data-bs-target="#bannerCarousel"
+				data-bs-slide-to="1" aria-label="Slide 2"></button>
+		</div>
 
-<div class="container my-5 text-center">
-    <h2>Welcome to JavaLikes</h2>
-    <p>Industry Ready Placement Programs on Java & .NET</p>
-</div>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img th:src="@{/images/banner.png}" class="d-block w-100"
+					alt="Java Fullstack Banner"
+					style="height: 500px; object-fit: contain;">
+			</div>
+			<div class="carousel-item">
+				<img th:src="@{/images/testing.png}" class="d-block w-100"
+					alt="Testing Banner" style="height: 500px; object-fit: contain;">
+			</div>
+		</div>
 
-<div class="container text-center mb-5">
-    <div class="row">
-        <div class="col-md-4 mb-3">
-            <div class="card p-4 shadow-sm">
-                <h3>52456+</h3>
-                <p>Careers Advanced</p>
-            </div>
-        </div>
-        <div class="col-md-4 mb-3">
-            <div class="card p-4 shadow-sm">
-                <h3>50+</h3>
-                <p>Courses Offered</p>
-            </div>
-        </div>
-        <div class="col-md-4 mb-3">
-            <div class="card p-4 shadow-sm">
-                <h3>30+</h3>
-                <p>Expert Trainers</p>
-            </div>
-        </div>
-    </div>
-</div>
+		<button class="carousel-control-prev" type="button"
+			data-bs-target="#bannerCarousel" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon"></span>
+		</button>
+		<button class="carousel-control-next" type="button"
+			data-bs-target="#bannerCarousel" data-bs-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		</button>
+	</div>
+	<!-- ✅ Courses Overview Cards -->
+	<div class="container my-5">
+		<h3 class="mb-4 text-center">Upcoming Batches</h3>
+		<div class="row g-4">
+			<div class="col-md-4" th:each="course : ${courseList}">
+				<div class="card course-card p-3 shadow-sm">
+					<div class="text-center mb-3">
+						<i class="bi bi-journal-code fs-1 text-primary"></i>
+					</div>
+					<h5 class="text-center" th:text="${course.name}">Course Name</h5>
+					<p class="text-center mb-1">
+						<i class="bi bi-clock"></i> Duration: <span
+							th:text="${course.duration}">3 Months</span>
+					</p>
+					<p class="text-center mb-3">
+						<i class="bi bi-currency-rupee"></i> <span
+							th:text="${course.offerPrice}">9000</span>
+					</p>
+					<p class="text-center mb-3">
+						<i class="bi bi-calendar-event"></i> <span
+							th:text="${course.startFrom}">Starts: 15-Aug-2025</span>
+					</p>
+					<div class="text-center">
+						<a href="#" class="btn btn-outline-primary btn-sm">View More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:replace="fragments :: footer"></div>
 
-<div th:replace="fragments :: footer"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+    window.addEventListener('load', () => {
+        document.querySelector('.profile-section')?.classList.add('visible');
+    });
+</script>
 </body>
 </html>

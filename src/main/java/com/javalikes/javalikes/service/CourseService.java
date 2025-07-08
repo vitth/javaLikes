@@ -6,6 +6,7 @@ package com.javalikes.javalikes.service;
 import java.util.List;
 
 import com.javalikes.javalikes.model.Course;
+import com.javalikes.javalikes.model.CourseDetail;
 
 public interface CourseService {
     List<Course> getAllSyllabus();
@@ -14,5 +15,6 @@ public interface CourseService {
 	List<Course> getAllJavaTopics();
 	List<Course> getAllDevopsTopics();
 	 List<Course> getByCategory(String category);
+	List<CourseDetail> getAllCourses();
     
 }
