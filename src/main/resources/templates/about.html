@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>About Us - JavaLikes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div th:replace="fragments :: navbar"></div>
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">About JavaLikes</h2>
+    <div class="row align-items-center">
+        <div class="col-md-6 mb-4">
+            <img th:src="@{/images/about-us.png}" class="img-fluid rounded shadow" alt="About JavaLikes">
+        </div>
+        <div class="col-md-6">
+            <p>At JavaLikes, we specialize in delivering industry-relevant training programs that transform freshers & professionals into highly employable IT experts. With 8+ years of experience, our trainers bring real-world microservices, DevOps & cloud expertise to every class.</p>
+            <p>We are committed to:</p>
+            <ul>
+                <li>Hands-on projects & live coding</li>
+                <li>Expert guidance for interviews & certifications</li>
+                <li>Connecting students to top IT recruiters</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments :: footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,45 +1,41 @@
 package com.javalikes.javalikes.model;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class CourseDetail {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    private String name;
+    private String duration;
+    private BigDecimal price;
 
-	private String name;
-	private String duration;
-	private String offerPrice;
-	private String startFrom;
-	
-	
+    @Column(name = "start_date")
+    private LocalDate startDate;
 
-	public String getStartFrom() {
-		return startFrom;
-	}
+    private String category;
+    private String image;
 
-	public void setStartFrom(String startFrom) {
-		this.startFrom = startFrom;
-	}
+    @ManyToOne
+    @JoinColumn(name = "trainer_id")
+    private Trainer trainer;
 
-	public CourseDetail() {}
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<CourseSyllabus> syllabus;
 
-	
-
-	public CourseDetail(String name, String duration, String offerPrice, String startFrom) {
-		super();
-		this.name = name;
-		this.duration = duration;
-		this.offerPrice = offerPrice;
-		this.startFrom = startFrom;
-	}
-
-	// Getters and Setters
 	public Long getId() {
 		return id;
 	}
@@ -64,12 +60,52 @@ public class CourseDetail {
 		this.duration = duration;
 	}
 
-	public String getOfferPrice() {
-		return offerPrice;
+	public BigDecimal getPrice() {
+		return price;
 	}
 
-	public void setOfferPrice(String offerPrice) {
-		this.offerPrice = offerPrice;
+	public void setPrice(BigDecimal price) {
+		this.price = price;
 	}
 
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public Trainer getTrainer() {
+		return trainer;
+	}
+
+	public void setTrainer(Trainer trainer) {
+		this.trainer = trainer;
+	}
+
+	public List<CourseSyllabus> getSyllabus() {
+		return syllabus;
+	}
+
+	public void setSyllabus(List<CourseSyllabus> syllabus) {
+		this.syllabus = syllabus;
+	}
+    
 }
