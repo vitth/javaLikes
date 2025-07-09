@@ -4,13 +4,42 @@
   <title>Home - JavaLikes</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+    }
+    .card {
+      background-color: #111;
+      color: #fff;
+      border: 1px solid #333;
+    }
+    .modal-content {
+      background-color: #111;
+      color: #fff;
+      border: 1px solid #333;
+    }
+    .form-control, .form-control:focus {
+      background-color: #222;
+      color: #fff;
+      border: 1px solid #555;
+    }
+    .form-control::placeholder {
+      color: #aaa;
+    }
+    .navbar, .footer {
+      background-color: #111;
+    }
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+      filter: invert(1);
+    }
+  </style>
 </head>
 <body>
 
 <!-- Navbar -->
 <div th:replace="~{fragments :: navbar}"></div>
 
-<!-- ✅ Upcoming Batches First -->
 <div class="container my-5">
   <h2 class="text-center mb-4">Upcoming Batches</h2>
   <div class="row g-4">
@@ -21,16 +50,12 @@
           <p><i class="bi bi-clock"></i> <span th:text="${batch.duration}">5 Months</span></p>
           <p><i class="bi bi-calendar-event"></i> Starts <span th:text="${batch.startDate}">01-Aug</span></p>
           <p><i class="bi bi-person-video3"></i> Trainer: <span th:text="${batch.trainer.name}">Vittal</span></p>
-          
-          <!-- Enquiry Button -->
-          <button class="btn btn-outline-secondary me-2 mt-2"
+          <button class="btn btn-outline-light me-2 mt-2"
                   data-bs-toggle="modal"
                   data-bs-target="#enquiryModal"
                   th:attr="data-course=${batch.name}">
             Enquiry
           </button>
-
-          <!-- Register Button -->
           <button class="btn btn-primary mt-2"
                   data-bs-toggle="modal"
                   data-bs-target="#registerModal"
@@ -43,7 +68,6 @@
   </div>
 </div>
 
-<!-- ✅ Banner Carousel moved down -->
 <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -64,7 +88,7 @@
   </button>
 </div>
 
-<!-- ✅ Enquiry Modal -->
+<!-- Enquiry Modal -->
 <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <form class="modal-content" onsubmit="submitEnquiry(event)">
@@ -79,7 +103,7 @@
           <input type="text" class="form-control" required>
         </div>
         <div class="mb-3">
-          <label class="form-label">Phone Number</label>
+          <label class="form-label">Phone Number(WhatsApp Only)</label>
           <input type="tel" class="form-control" required>
         </div>
         <div class="mb-3">
@@ -95,7 +119,7 @@
   </div>
 </div>
 
-<!-- ✅ Register Modal -->
+<!-- Register Modal -->
 <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <form class="modal-content" onsubmit="submitRegister(event)">
@@ -132,7 +156,6 @@
   </div>
 </div>
 
-<!-- Footer -->
 <div th:replace="~{fragments :: footer}"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -174,11 +197,11 @@ function submitEnquiry(event) {
 function submitRegister(event) {
     event.preventDefault();
     const data = {
-    		course: document.getElementById('registerCourse').value,
-    	    name: document.getElementById('registerName').value,
-    	    email: document.getElementById('registerEmail').value,
-    	    phone: document.getElementById('registerPhone').value,
-    	    whatsapp: document.getElementById('registerWhatsapp').value
+        course: document.getElementById('registerCourse').value,
+        name: document.getElementById('registerName').value,
+        email: document.getElementById('registerEmail').value,
+        phone: document.getElementById('registerPhone').value,
+        whatsapp: document.getElementById('registerWhatsapp').value
     };
     fetch('/api/register', {
         method: 'POST',

@@ -37,7 +37,7 @@ public class EnquiryController {
         
         mailSender.send(message);
 
-        return "Enquiry received! Our team will contact you shortly.";
+        return "Enquiry received! Our team will contact you shortly on WhatsApp.";
     }
 
     @PostMapping("/register")

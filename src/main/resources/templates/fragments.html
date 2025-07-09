@@ -7,7 +7,8 @@
 
 <!-- ✅ Navbar Fragment -->
 <div th:fragment="navbar">
-  <div class="bg-dark text-light py-2 small">
+  <!-- 🔴 Updated top bar to red background -->
+  <div class="text-light py-2 small" style="background-color: #dc3545;"> 
     <div class="container d-flex justify-content-between">
       <div>
         <i class="bi bi-telephone-fill me-2"></i> +91-9158810907
@@ -19,24 +20,26 @@
       </div>
     </div>
   </div>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+
+  <!-- 🔴 Updated navbar to red background -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #dc3545;">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="/">
         <img th:src="@{/images/javalikes-logo.PNG}" alt="JavaLikes Logo" style="width:50px;" class="me-2">
-        <span class="fw-bold">JavaLikes</span>
+        <span class="fw-bold text-white">JavaLikes</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
-          <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="/courses">Courses</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="/faq">FAQ</a></li>
           <li class="nav-item ms-lg-3">
-            <a class="btn btn-primary" href="/register">Register</a>
+            <a class="btn btn-light text-dark" href="/register">Register</a>
           </li>
         </ul>
       </div>
