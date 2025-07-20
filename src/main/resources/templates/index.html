@@ -7,16 +7,59 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
   <style>
-    body { background: #f9f9f9; font-family: 'Segoe UI', sans-serif; }
-    .navbar { background: #003366; }
-    .navbar .nav-link, .navbar .navbar-brand { color: #fff; }
-    .hero { background: linear-gradient(45deg, #004080, #0066cc); color: #fff; padding: 80px 0; text-align: center; }
-    .hero h1 { font-size: 3rem; font-weight: 700; }
-    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
-    .batch-card { border: 1px solid #ddd; box-shadow: 0 0 10px #ccc; transition: 0.3s; }
-    .batch-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px #aaa; }
-    .highlight i { font-size: 2rem; color: #0066cc; }
-    .footer { background: #003366; color: #fff; padding: 20px 0; text-align: center; margin-top: 40px; }
+    body {
+      background: #f9f9f9;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar {
+      background: #003366;
+    }
+    .navbar .nav-link, .navbar .navbar-brand {
+      color: #fff;
+    }
+    .hero {
+      background: linear-gradient(45deg, #004080, #0066cc);
+      color: #fff;
+      padding: 80px 0;
+      text-align: center;
+    }
+    .batch-card {
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px #ccc;
+      transition: 0.3s;
+    }
+    .batch-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #aaa;
+    }
+    .highlight i {
+      font-size: 2rem;
+      color: #0066cc;
+    }
+    .footer {
+      background: #003366;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 28px;
+      z-index: 1000;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+    .whatsapp-icon {
+      margin-top: 16px;
+    }
   </style>
 </head>
 <body>
@@ -35,7 +78,7 @@
   </div>
 </nav>
 
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero">
   <div class="container">
     <h1>Placement Assistance Program</h1>
@@ -44,7 +87,7 @@
   </div>
 </section>
 
-<!-- Upcoming Batches -->
+<!-- Batches -->
 <section id="batches" class="container my-5">
   <h2 class="text-center mb-4">Upcoming Batches</h2>
   <div class="row g-4">
@@ -109,35 +152,23 @@
 <!-- Register Modal -->
 <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <form class="modal-content" method="post" action="/api/register">
+    <form class="modal-content" method="post" action="/api/register" onsubmit="return showSuccessMessage()">
       <div class="modal-header">
         <h5 class="modal-title">Student Registration</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <input type="hidden" name="course" id="modalCourseInput">
+        <div class="mb-3"><label class="form-label">Name</label><input name="name" type="text" class="form-control" required /></div>
+        <div class="mb-3"><label class="form-label">Email</label><input name="email" type="email" class="form-control" required /></div>
+        <div class="mb-3"><label class="form-label">Phone</label><input name="phone" type="text" class="form-control" id="phoneInput" required /></div>
         <div class="mb-3">
-          <label class="form-label">Name</label>
-          <input name="name" type="text" class="form-control" required />
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Email</label>
-          <input name="email" type="email" class="form-control" required />
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Phone</label>
-          <input id="phoneInput" name="phone" type="text" class="form-control" required />
-        </div>
-        <div class="form-check mb-2">
-          <input class="form-check-input" type="checkbox" id="sameAsPhoneCheckbox">
-          <label class="form-check-label" for="sameAsPhoneCheckbox">WhatsApp number same as phone</label>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">WhatsApp</label>
-          <input id="whatsappInput" name="whatsapp" type="text" class="form-control" required />
-        </div>
-        <div id="successAlert" class="alert alert-success d-none" role="alert">
-          Registration successful! Check your email and WhatsApp for the Google Meet link.
+          <label class="form-label">Whatsapp</label>
+          <input name="whatsapp" type="text" class="form-control" id="whatsappInput" required />
+          <div class="form-check mt-1">
+            <input class="form-check-input" type="checkbox" id="sameAsPhone" onclick="copyPhoneToWhatsapp()">
+            <label class="form-check-label" for="sameAsPhone">Same as Phone</label>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
@@ -148,46 +179,37 @@
   </div>
 </div>
 
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919158810907" class="whatsapp-float" target="_blank">
+  <i class="bi bi-whatsapp whatsapp-icon"></i>
+</a>
+
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   const registerModal = document.getElementById('registerModal');
-
   registerModal.addEventListener('show.bs.modal', function (event) {
     const button = event.relatedTarget;
     const course = button.getAttribute('data-course');
     document.getElementById('modalCourseInput').value = course;
-    document.getElementById('successAlert').classList.add('d-none'); // Reset on open
   });
 
-  const phoneInput = document.getElementById('phoneInput');
-  const whatsappInput = document.getElementById('whatsappInput');
-  const sameCheckbox = document.getElementById('sameAsPhoneCheckbox');
-
-  sameCheckbox.addEventListener('change', () => {
-    if (sameCheckbox.checked) {
-      whatsappInput.value = phoneInput.value;
-      whatsappInput.readOnly = true;
+  function copyPhoneToWhatsapp() {
+    const phone = document.getElementById("phoneInput").value;
+    const whatsappInput = document.getElementById("whatsappInput");
+    if (document.getElementById("sameAsPhone").checked) {
+      whatsappInput.value = phone;
     } else {
-      whatsappInput.readOnly = false;
+      whatsappInput.value = "";
     }
-  });
+  }
 
-  phoneInput.addEventListener('input', () => {
-    if (sameCheckbox.checked) {
-      whatsappInput.value = phoneInput.value;
-    }
-  });
-
-  const form = registerModal.querySelector('form');
-  form.addEventListener('submit', function (e) {
-    // show success msg (only for demo, you can implement AJAX if needed)
-    document.getElementById('successAlert').classList.remove('d-none');
+  function showSuccessMessage() {
     setTimeout(() => {
-      const modal = bootstrap.Modal.getInstance(registerModal);
-      modal.hide();
-    }, 3000);
-  });
+      alert("Registration successful! You'll get the Google Meet link on your email and WhatsApp.");
+    }, 100);
+    return true;
+  }
 </script>
 
 </body>
