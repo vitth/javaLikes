@@ -1,219 +1,138 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-  <title>Home - JavaLikes</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaLikes - Java Fullstack Pro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/>
   <style>
     body {
-      background-color: #000;
+      background-color: #0d1b2a;
       color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .hero {
+      background-color: #1b263b;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    .hero img {
+      max-width: 250px;
+    }
+    .highlight-icon {
+      font-size: 2rem;
+      color: #00d977;
     }
     .card {
-      background-color: #111;
-      color: #fff;
-      border: 1px solid #333;
+      background-color: #1b263b;
+      border: none;
+      color: white;
     }
-    .modal-content {
-      background-color: #111;
-      color: #fff;
-      border: 1px solid #333;
+    .badge-highlight {
+      background-color: #ffc107;
+      color: #000;
+      font-weight: bold;
     }
-    .form-control, .form-control:focus {
-      background-color: #222;
+    .batch-card {
+      background: #243b55;
+      padding: 20px;
+      border-radius: 12px;
       color: #fff;
-      border: 1px solid #555;
     }
-    .form-control::placeholder {
+    .btn-enroll {
+      background-color: #00b894;
+      border: none;
+    }
+    footer {
+      background: #1b263b;
+      padding: 20px;
+      text-align: center;
       color: #aaa;
-    }
-    .navbar, .footer {
-      background-color: #111;
-    }
-    .carousel-control-prev-icon, .carousel-control-next-icon {
-      filter: invert(1);
     }
   </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<div th:replace="~{fragments :: navbar}"></div>
+  <!-- Hero Section -->
+  <div class="hero d-flex flex-column flex-md-row align-items-center justify-content-between px-5">
+    <div class="text-start">
+      <h1>Become a Java<br>Fullstack Pro.</h1>
+      <p>Join live classes. Weekly tests. 1-on-1 interview practice.</p>
+      <a href="#batches" class="btn btn-primary btn-lg mt-3">View Upcoming Batches</a>
+    </div>
+    <img src="https://via.placeholder.com/250x300" alt="Trainer"/>
+  </div>
 
-<div class="container my-5">
-  <h2 class="text-center mb-4">Upcoming Batches</h2>
-  <div class="row g-4">
-    <div class="col-md-4" th:each="batch : ${batches}">
-      <div class="card h-100 shadow-sm">
-        <div class="card-body text-center">
-          <h5 class="card-title" th:text="${batch.name}">Java Fullstack</h5>
-          <p><i class="bi bi-clock"></i> <span th:text="${batch.duration}">5 Months</span></p>
-          <p><i class="bi bi-calendar-event"></i> Starts <span th:text="${batch.startDate}">01-Aug</span></p>
-          <p><i class="bi bi-person-video3"></i> Trainer: <span th:text="${batch.trainer.name}">Vittal</span></p>
-          <button class="btn btn-outline-light me-2 mt-2"
-                  data-bs-toggle="modal"
-                  data-bs-target="#enquiryModal"
-                  th:attr="data-course=${batch.name}">
-            Enquiry
-          </button>
-          <button class="btn btn-primary mt-2"
-                  data-bs-toggle="modal"
-                  data-bs-target="#registerModal"
-                  th:attr="data-course=${batch.name}">
-            Register
-          </button>
+  <!-- Highlights Section -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Highlights</h2>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <i class="bi bi-clipboard-check highlight-icon"></i>
+        <p>Weekly Tests</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-person-lines-fill highlight-icon"></i>
+        <p>1-on-1 Interview Practice</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-award highlight-icon"></i>
+        <p>Placement Support</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Placement Banner -->
+  <div class="container mb-5">
+    <div class="card text-center p-4">
+      <h3>PLACEMENT Assistance Program</h3>
+      <span class="badge badge-highlight mb-2">Excellent to Cr@ck Interviews!</span>
+      <p><i class="bi bi-calendar-event"></i> Aug 30, 2025 - 11:00 AM</p>
+    </div>
+  </div>
+
+  <!-- Upcoming Batches -->
+  <div class="container" id="batches">
+    <h2 class="text-center mb-4">Upcoming Batches</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="batch-card">
+          <h5>Manual & Automation Testing</h5>
+          <p>6 Months | Driya Menta</p>
+          <button class="btn btn-enroll">Enroll Now</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="batch-card">
+          <h5>DevOps with AWS</h5>
+          <p>5 Months | Aug 30, 2025 | Rahul Srrama</p>
+          <button class="btn btn-enroll">Enroll Now</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="batch-card">
+          <h5>Spring Boot & AWS Microservices</h5>
+          <p>5 Months | Sagar Rao</p>
+          <button class="btn btn-enroll">Enroll Now</button>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img th:src="@{/images/banner.png}" class="d-block w-100" style="height:600px; object-fit:cover;" alt="Banner 1">
-    </div>
-    <div class="carousel-item">
-      <img th:src="@{/images/testingNew.png}" class="d-block w-100" style="height:600px; object-fit:cover;" alt="Banner 2">
-    </div>
-    <div class="carousel-item">
-      <img th:src="@{/images/devops.png}" class="d-block w-100" style="height:600px; object-fit:cover;" alt="Banner 3">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
+  <!-- Footer -->
+  <footer class="mt-5">
+    &copy; 2025 JavaLikes. All Rights Reserved | 📱 WhatsApp | 📧 info@javalikes.com
+  </footer>
 
-<!-- Enquiry Modal -->
-<div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <form class="modal-content" onsubmit="submitEnquiry(event)">
-      <div class="modal-header">
-        <h5 class="modal-title" id="enquiryModalLabel">Enquiry Form</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <input type="hidden" id="enquiryCourse" name="course">
-        <div class="mb-3">
-          <label class="form-label">Your Name</label>
-          <input type="text" class="form-control" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Phone Number(WhatsApp Only)</label>
-          <input type="tel" class="form-control" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Message</label>
-          <textarea class="form-control" rows="3"></textarea>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <span class="text-muted small">Our team will contact you shortly.</span>
-        <button type="submit" class="btn btn-success">Submit Enquiry</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- Register Modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <form class="modal-content" onsubmit="submitRegister(event)">
-      <div class="modal-header">
-        <h5 class="modal-title" id="registerModalLabel">Register for Demo</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <input type="hidden" id="registerCourse" name="course">
-        <div class="alert alert-info">
-          Registration is <strong>mandatory</strong> to attend the demo class.
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Full Name</label>
-          <input type="text" class="form-control" id="registerName" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-control" id="registerEmail" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Phone</label>
-          <input type="tel" class="form-control" id="registerPhone" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">WhatsApp Number</label>
-          <input type="tel" class="form-control" id="registerWhatsapp" required>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Register Now</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div th:replace="~{fragments :: footer}"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-const enquiryModal = document.getElementById('enquiryModal');
-enquiryModal.addEventListener('show.bs.modal', event => {
-  const button = event.relatedTarget;
-  const course = button.getAttribute('data-course');
-  document.getElementById('enquiryCourse').value = course;
-});
-
-const registerModal = document.getElementById('registerModal');
-registerModal.addEventListener('show.bs.modal', event => {
-  const button = event.relatedTarget;
-  const course = button.getAttribute('data-course');
-  document.getElementById('registerCourse').value = course;
-});
-
-function submitEnquiry(event) {
-    event.preventDefault();
-    const data = {
-        course: document.getElementById('enquiryCourse').value,
-        name: event.target[1].value,
-        phone: event.target[2].value,
-        message: event.target[3].value
-    };
-    fetch('/api/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    }).then(res => res.text()).then(msg => {
-        alert(msg);
-        bootstrap.Modal.getInstance(enquiryModal).hide();
-        event.target.reset();
-    });
-}
-
-function submitRegister(event) {
-    event.preventDefault();
-    const data = {
-        course: document.getElementById('registerCourse').value,
-        name: document.getElementById('registerName').value,
-        email: document.getElementById('registerEmail').value,
-        phone: document.getElementById('registerPhone').value,
-        whatsapp: document.getElementById('registerWhatsapp').value
-    };
-    fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    }).then(res => res.text()).then(msg => {
-        alert(msg);
-        bootstrap.Modal.getInstance(registerModal).hide();
-        event.target.reset();
-    });
-}
-</script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
