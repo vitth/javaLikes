@@ -3,136 +3,192 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JavaLikes - Java Fullstack Pro</title>
+  <title>JavaLikes - Java Fullstack Training & Placement</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
   <style>
-    body {
-      background-color: #0d1b2a;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    .hero {
-      background-color: #1b263b;
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: bold;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      color: #ccc;
-    }
-    .hero img {
-      max-width: 250px;
-    }
-    .highlight-icon {
-      font-size: 2rem;
-      color: #00d977;
-    }
-    .card {
-      background-color: #1b263b;
-      border: none;
-      color: white;
-    }
-    .badge-highlight {
-      background-color: #ffc107;
-      color: #000;
-      font-weight: bold;
-    }
-    .batch-card {
-      background: #243b55;
-      padding: 20px;
-      border-radius: 12px;
-      color: #fff;
-    }
-    .btn-enroll {
-      background-color: #00b894;
-      border: none;
-    }
-    footer {
-      background: #1b263b;
-      padding: 20px;
-      text-align: center;
-      color: #aaa;
-    }
+    body { background: #f9f9f9; font-family: 'Segoe UI', sans-serif; }
+    .navbar { background: #003366; }
+    .navbar .nav-link, .navbar .navbar-brand { color: #fff; }
+    .hero { background: linear-gradient(45deg, #004080, #0066cc); color: #fff; padding: 80px 0; text-align: center; }
+    .hero h1 { font-size: 3rem; font-weight: 700; }
+    .hero p { font-size: 1.2rem; margin-bottom: 20px; }
+    .batch-card { border: 1px solid #ddd; box-shadow: 0 0 10px #ccc; transition: 0.3s; }
+    .batch-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px #aaa; }
+    .highlight i { font-size: 2rem; color: #0066cc; }
+    .footer { background: #003366; color: #fff; padding: 20px 0; text-align: center; margin-top: 40px; }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <div class="hero d-flex flex-column flex-md-row align-items-center justify-content-between px-5">
-    <div class="text-start">
-      <h1>Become a Java<br>Fullstack Pro.</h1>
-      <p>Join live classes. Weekly tests. 1-on-1 interview practice.</p>
-      <a href="#batches" class="btn btn-primary btn-lg mt-3">View Upcoming Batches</a>
-    </div>
-    <img src="https://via.placeholder.com/250x300" alt="Trainer"/>
-  </div>
-
-  <!-- Highlights Section -->
-  <div class="container my-5">
-    <h2 class="text-center mb-4">Highlights</h2>
-    <div class="row text-center">
-      <div class="col-md-4">
-        <i class="bi bi-clipboard-check highlight-icon"></i>
-        <p>Weekly Tests</p>
-      </div>
-      <div class="col-md-4">
-        <i class="bi bi-person-lines-fill highlight-icon"></i>
-        <p>1-on-1 Interview Practice</p>
-      </div>
-      <div class="col-md-4">
-        <i class="bi bi-award highlight-icon"></i>
-        <p>Placement Support</p>
-      </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">JavaLikes</a>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#batches">Batches</a></li>
+        <li class="nav-item"><a class="nav-link" href="#highlights">Highlights</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+      </ul>
     </div>
   </div>
+</nav>
 
-  <!-- Placement Banner -->
-  <div class="container mb-5">
-    <div class="card text-center p-4">
-      <h3>PLACEMENT Assistance Program</h3>
-      <span class="badge badge-highlight mb-2">Excellent to Cr@ck Interviews!</span>
-      <p><i class="bi bi-calendar-event"></i> Aug 30, 2025 - 11:00 AM</p>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1>Placement Assistance Program</h1>
+    <p>Join Java Fullstack & Spring Boot. Weekly Tests. 1-on-1 Interview Prep. Full Support Until Placed.</p>
+    <a href="#batches" class="btn btn-warning btn-lg">View Upcoming Batches</a>
+  </div>
+</section>
+
+<!-- Upcoming Batches -->
+<section id="batches" class="container my-5">
+  <h2 class="text-center mb-4">Upcoming Batches</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card batch-card p-3 text-center">
+        <h4>Java Fullstack & Spring Boot</h4>
+        <p><i class="bi bi-clock"></i> 5 Months</p>
+        <p><i class="bi bi-calendar-event"></i> Starts 15-Aug-2025</p>
+        <p><i class="bi bi-person"></i> Trainer: Sagar Rao</p>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal" data-course="Java Fullstack & Spring Boot">Register Now</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card batch-card p-3 text-center">
+        <h4>Spring Boot & Microservices</h4>
+        <p><i class="bi bi-clock"></i> 3 Months</p>
+        <p><i class="bi bi-calendar-event"></i> Starts 20-Aug-2025</p>
+        <p><i class="bi bi-person"></i> Trainer: Sagar Rao</p>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal" data-course="Spring Boot & Microservices">Register Now</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card batch-card p-3 text-center">
+        <h4>DevOps with AWS</h4>
+        <p><i class="bi bi-clock"></i> 3 Months</p>
+        <p><i class="bi bi-calendar-event"></i> Starts 30-Aug-2025</p>
+        <p><i class="bi bi-person"></i> Trainer: Rahul Sharma</p>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal" data-course="DevOps with AWS">Register Now</button>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- Upcoming Batches -->
-  <div class="container" id="batches">
-    <h2 class="text-center mb-4">Upcoming Batches</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="batch-card">
-          <h5>Manual & Automation Testing</h5>
-          <p>6 Months | Driya Menta</p>
-          <button class="btn btn-enroll">Enroll Now</button>
+<!-- Highlights -->
+<section id="highlights" class="container my-5 text-center">
+  <h2 class="mb-4">Why Choose JavaLikes?</h2>
+  <div class="row g-4">
+    <div class="col-md-3 highlight"><i class="bi bi-clipboard-check"></i><h5 class="mt-2">Weekly Tests</h5></div>
+    <div class="col-md-3 highlight"><i class="bi bi-person-badge"></i><h5 class="mt-2">1-on-1 Interview Practice</h5></div>
+    <div class="col-md-3 highlight"><i class="bi bi-award"></i><h5 class="mt-2">Earn Badges</h5></div>
+    <div class="col-md-3 highlight"><i class="bi bi-briefcase"></i><h5 class="mt-2">Placement Support</h5></div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials" class="container my-5">
+  <h2 class="text-center mb-4">What Our Students Say</h2>
+  <div class="row g-4">
+    <div class="col-md-4"><div class="card p-3"><p>"Thanks to JavaLikes, I cleared interviews at top MNCs. The weekly tests were game-changers!"</p><h6>- Anjali S.</h6></div></div>
+    <div class="col-md-4"><div class="card p-3"><p>"1-on-1 interview practice gave me huge confidence. Got placed within 3 months."</p><h6>- Ravi K.</h6></div></div>
+    <div class="col-md-4"><div class="card p-3"><p>"Awesome trainers & placement support. Loved the badges system too!"</p><h6>- Sneha M.</h6></div></div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2025 JavaLikes. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content" method="post" action="/api/register">
+      <div class="modal-header">
+        <h5 class="modal-title">Student Registration</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" name="course" id="modalCourseInput">
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          <input name="name" type="text" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input name="email" type="email" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Phone</label>
+          <input id="phoneInput" name="phone" type="text" class="form-control" required />
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="checkbox" id="sameAsPhoneCheckbox">
+          <label class="form-check-label" for="sameAsPhoneCheckbox">WhatsApp number same as phone</label>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">WhatsApp</label>
+          <input id="whatsappInput" name="whatsapp" type="text" class="form-control" required />
+        </div>
+        <div id="successAlert" class="alert alert-success d-none" role="alert">
+          Registration successful! Check your email and WhatsApp for the Google Meet link.
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="batch-card">
-          <h5>DevOps with AWS</h5>
-          <p>5 Months | Aug 30, 2025 | Rahul Srrama</p>
-          <button class="btn btn-enroll">Enroll Now</button>
-        </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
-      <div class="col-md-4">
-        <div class="batch-card">
-          <h5>Spring Boot & AWS Microservices</h5>
-          <p>5 Months | Sagar Rao</p>
-          <button class="btn btn-enroll">Enroll Now</button>
-        </div>
-      </div>
-    </div>
+    </form>
   </div>
+</div>
 
-  <!-- Footer -->
-  <footer class="mt-5">
-    &copy; 2025 JavaLikes. All Rights Reserved | 📱 WhatsApp | 📧 info@javalikes.com
-  </footer>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const registerModal = document.getElementById('registerModal');
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  registerModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+    const course = button.getAttribute('data-course');
+    document.getElementById('modalCourseInput').value = course;
+    document.getElementById('successAlert').classList.add('d-none'); // Reset on open
+  });
+
+  const phoneInput = document.getElementById('phoneInput');
+  const whatsappInput = document.getElementById('whatsappInput');
+  const sameCheckbox = document.getElementById('sameAsPhoneCheckbox');
+
+  sameCheckbox.addEventListener('change', () => {
+    if (sameCheckbox.checked) {
+      whatsappInput.value = phoneInput.value;
+      whatsappInput.readOnly = true;
+    } else {
+      whatsappInput.readOnly = false;
+    }
+  });
+
+  phoneInput.addEventListener('input', () => {
+    if (sameCheckbox.checked) {
+      whatsappInput.value = phoneInput.value;
+    }
+  });
+
+  const form = registerModal.querySelector('form');
+  form.addEventListener('submit', function (e) {
+    // show success msg (only for demo, you can implement AJAX if needed)
+    document.getElementById('successAlert').classList.remove('d-none');
+    setTimeout(() => {
+      const modal = bootstrap.Modal.getInstance(registerModal);
+      modal.hide();
+    }, 3000);
+  });
+</script>
+
 </body>
 </html>

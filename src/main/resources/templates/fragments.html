@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 </head>
 <body>
 
 <!-- ✅ Navbar Fragment -->
 <div th:fragment="navbar">
-  <!-- 🔴 Updated top bar to red background -->
-  <div class="text-light py-2 small" style="background-color: #dc3545;"> 
+  <!-- Top Info Bar -->
+  <div class="text-light py-2 small" style="background-color: #dc3545;">
     <div class="container d-flex justify-content-between">
       <div>
         <i class="bi bi-telephone-fill me-2"></i> +91-9158810907
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <!-- 🔴 Updated navbar to red background -->
+  <!-- Main Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #dc3545;">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="/">
@@ -52,6 +52,7 @@
   <footer class="bg-dark text-light py-4 text-center mt-5">
     © 2025 JavaLikes. All rights reserved.
 
+    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/9158810907" class="float" target="_blank">
       <i class="bi bi-whatsapp my-float"></i>
     </a>
